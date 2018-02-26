@@ -91,7 +91,7 @@ public class SubscriptionBundle {
         return totalCost;
     }
 
-    public void setTotal_cost(double totalCost) {
+    public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
     }
 }
