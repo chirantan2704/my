@@ -30,7 +30,7 @@ public class ProductDaoImpl implements ProductDao{
   
         
          jdbcTemplate.update("INSERT INTO  Product(product_name, description, intro_date,end_date,isactive,cost_current,cost_intro_time) VALUES (?, ?, ?, ?,?,?,?)",
-            product.getProduct_name(),product.getDescription(),product.getIntro_date(),product.getEnd_date(),product.isIsactive(),product.getCost_current(),product.getCost_intro_time());
+            product.getProductName(),product.getDescription(),product.getIntroDate(),product.getEndDate(),product.isIsactive(),product.getCostCurrent(),product.getCostIntroTime());
        
   //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

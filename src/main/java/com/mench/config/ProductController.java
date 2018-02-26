@@ -73,7 +73,7 @@ public class ProductController {
        productService.addProduct(product);
  
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/product/{id}").buildAndExpand(product.getProduct_name()).toUri());
+        headers.setLocation(ucBuilder.path("/product/{id}").buildAndExpand(product.getProductName()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
  

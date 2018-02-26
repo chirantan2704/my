@@ -13,29 +13,29 @@ import java.time.LocalDateTime;
  */
 public class Product {
  
-   String     product_id;			
-   String     product_name;			
+   String     productId;			
+   String     productName;			
    String     description;			
- LocalDateTime intro_date;			
-LocalDateTime end_date;			
-boolean       isactive;			
-double        cost_current;			
-double        cost_intro_time;
+   LocalDateTime introDate;			
+   LocalDateTime endDate;			
+   boolean       isactive;			
+   double        costCurrent;			
+   double        costIntroTime;
 
-    public String getProduct_id() {
-        return product_id;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(String product_id) {
-        this.product_id = product_id;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getDescription() {
@@ -46,20 +46,20 @@ double        cost_intro_time;
         this.description = description;
     }
 
-    public LocalDateTime getIntro_date() {
-        return intro_date;
+    public LocalDateTime getIntroDate() {
+        return introDate;
     }
 
-    public void setIntro_date(LocalDateTime intro_date) {
-        this.intro_date = intro_date;
+    public void setIntroDate(LocalDateTime introDate) {
+        this.introDate = introDate;
     }
 
-    public LocalDateTime getEnd_date() {
-        return end_date;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(LocalDateTime end_date) {
-        this.end_date = end_date;
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
     public boolean isIsactive() {
@@ -70,22 +70,22 @@ double        cost_intro_time;
         this.isactive = isactive;
     }
 
-    public double getCost_current() {
-        return cost_current;
+    public double getCostCurrent() {
+        return costCurrent;
     }
 
-    public void setCost_current(double cost_current) {
-        this.cost_current = cost_current;
+    public void setCostCurrent(double costCurrent) {
+        this.costCurrent = costCurrent;
     }
 
-    public double getCost_intro_time() {
-        return cost_intro_time;
+    public double getCostIntroTime() {
+        return costIntroTime;
     }
 
-    public void setCost_intro_time(double cost_intro_time) {
-        this.cost_intro_time = cost_intro_time;
+    public void setCostIntroTime(double costIntroTime) {
+        this.costIntroTime = costIntroTime;
     }
-    
+
     
     
 }
