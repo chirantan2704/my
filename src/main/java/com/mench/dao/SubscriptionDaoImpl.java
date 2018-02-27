@@ -9,6 +9,7 @@ import com.mench.bean.Product;
 import com.mench.bean.Subscription;
 import com.mench.bean.SubscriptionBundle;
 import com.mench.bean.User;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,27 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
 
             }
             
+            int invoice_id = subscription.getSubscriptionId()+11000;
+            String description = "invoice for subscription id " + subscription.getSubscriptionId(); 
+            LocalDateTime invoiceDate = LocalDateTime.now();
+            double invoiceTotalAmount=0.0;
+            double invoiceAmount=1.0;
+            double invoiceTaxAmount= invoiceAmount/20;
+            String invoice_tax_id = "GST";
+            invoiceTotalAmount = invoiceAmount + invoiceAmount; 
             
+            
+            jdbcTemplate.update("INSERT INTO  invoice_detail(invoice_id,description,invoice_date,due_date,account_id,user_id,total_amount,invoice_tax_amount,invoice_amount,invoice_tax_id,invoice_total_no) VALUES (?, ?, ?, ?,?,?,?,?,?)",invoice_id,description,invoiceDate,invoiceDate,subscription.getAccountId(),subscription.getUserId(),invoiceTotalAmount,invoiceTaxAmount,invoiceAmount,invoice_tax_id,bundleSize);
+           
+         for(int i = 0 ; i <  bundleSize ; i++ ){
+                          SubscriptionBundle bundle =   subBundle.get(i);
+                          
+                       
+         jdbcTemplate.update("INSERT INTO  invoice_master(invoice_id,invoice_seq_number,invoice_item_id,due_date,account_id,user_id,total_amount,invoice_tax_amount,invoice_amount,invoice_tax_id,invoice_total_no) VALUES (?, ?, ?, ?,?,?,?,?,?)",invoice_id,description,invoiceDate,invoiceDate,subscription.getAccountId(),subscription.getUserId(),invoiceTotalAmount,invoiceTaxAmount,invoiceAmount,invoice_tax_id,bundleSize);
+       
+            }
+            
+         
             
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
