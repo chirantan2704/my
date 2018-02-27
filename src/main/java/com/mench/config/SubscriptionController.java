@@ -51,6 +51,7 @@ public class SubscriptionController {
      //   }
  
    
+      System.out.println(subscription.getSubscriptionBundle().size());
        subscriptionService.addSubscription(subscription);
  
         HttpHeaders headers = new HttpHeaders();

@@ -5,7 +5,10 @@
  */
 package com.mench.bean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,7 +28,17 @@ public class Subscription {
     String subscriptionType;			
     int userId;			
     int accountId;
+    List<SubscriptionBundle> subscriptionBundle = new ArrayList<>();
 
+    public List<SubscriptionBundle> getSubscriptionBundle() {
+        return subscriptionBundle;
+    }
+
+    @JsonProperty("subscriptionBundle")    
+    public void setSubscriptionBundle(List<SubscriptionBundle> subBundle) {
+        this.subscriptionBundle = subBundle;
+    }
+   
     public int getSubscriptionId() {
         return subscriptionId;
     }

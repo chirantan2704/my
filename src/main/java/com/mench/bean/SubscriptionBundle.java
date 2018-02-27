@@ -14,7 +14,9 @@ import java.time.LocalDateTime;
 public class SubscriptionBundle {
     
    int subscriptionId;			
-   int bundleId;			
+   int bundleId;		
+   
+   
    double cost;			
    boolean isActive;			
    LocalDateTime addedDate;			
@@ -22,7 +24,7 @@ public class SubscriptionBundle {
    int productId;			
    int units;			
    double totalCost;
-
+ 
     public int getSubscriptionId() {
         return subscriptionId;
     }
