@@ -55,20 +55,19 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
             invoiceTotalAmount = invoiceAmount + invoiceAmount; 
             
             
-            jdbcTemplate.update("INSERT INTO  invoice_detail(invoice_id,description,invoice_date,due_date,account_id,user_id,total_amount,invoice_tax_amount,invoice_amount,invoice_tax_id,invoice_total_no) VALUES (?, ?, ?, ?,?,?,?,?,?)",invoice_id,description,invoiceDate,invoiceDate,subscription.getAccountId(),subscription.getUserId(),invoiceTotalAmount,invoiceTaxAmount,invoiceAmount,invoice_tax_id,bundleSize);
+            jdbcTemplate.update("INSERT INTO  invoice_master(invoice_id,description,invoice_date,due_date,account_id,user_id,total_amount,invoice_tax_amount,invoice_amount,invoice_tax_id,invoice_total_no) VALUES (?, ?, ?, ?,?,?,?,?,?)",invoice_id,description,invoiceDate,invoiceDate,subscription.getAccountId(),subscription.getUserId(),invoiceTotalAmount,invoiceTaxAmount,invoiceAmount,invoice_tax_id,bundleSize);
            
          for(int i = 0 ; i <  bundleSize ; i++ ){
                           SubscriptionBundle bundle =   subBundle.get(i);
                           
                        
-         jdbcTemplate.update("INSERT INTO  invoice_master(invoice_id,invoice_seq_number,invoice_item_id,due_date,account_id,user_id,total_amount,invoice_tax_amount,invoice_amount,invoice_tax_id,invoice_total_no) VALUES (?, ?, ?, ?,?,?,?,?,?)",invoice_id,description,invoiceDate,invoiceDate,subscription.getAccountId(),subscription.getUserId(),invoiceTotalAmount,invoiceTaxAmount,invoiceAmount,invoice_tax_id,bundleSize);
+         jdbcTemplate.update("INSERT INTO  invoice_detail(invoice_id,invoice_seq_number,invoice_item_id,price,tax_code,quantity,round_flag) VALUES (?, ?, ?, ?,?,?,?,?,?)",invoice_id,i,bundle.getProductId(),bundle.getCost(),invoice_tax_id,bundle.getUnits(),false);
        
             }
             
          
             
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+       }
 
     @Override
     public void editSubscription(Subscription subscription, String subscriptionId) {
