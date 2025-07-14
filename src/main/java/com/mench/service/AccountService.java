@@ -27,5 +27,7 @@ public interface AccountService {
     public List < Account > findAll();
 
     public User findworld(String bundleId);
+
+     public User findworldNearMe(String bundleId);
     
 }
